@@ -1,0 +1,8 @@
+[package]
+name = "foo"
+version = "0.1.0"
+edition = "2021"
+description = "Rust component of the foobar app — prints 'foo'"
+
+[dependencies]
+colored = "2.1"

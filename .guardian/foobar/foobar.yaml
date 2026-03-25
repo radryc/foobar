@@ -1,0 +1,36 @@
+apiVersion: guardian.io/v1
+kind: DeploymentIntent
+metadata:
+  name: foobar
+  partition: foobar
+  labels:
+    app: foobar
+    repo: foobar
+spec:
+  artifacts:
+    - name: go-server
+      image: foobar-go:latest
+      role: server
+    - name: js-frontend
+      image: foobar-js:latest
+      role: frontend
+
+  targets:
+    - name: local-k8s
+      kind: k8s
+      artifacts:
+        - go-server
+        - js-frontend
+      config:
+        namespace: foobar
+        context: kind-local
+
+  lifecycle:
+    rollout:
+      strategy: rolling
+      maxUnavailable: 0
+      maxSurge: 1
+
+  policy:
+    autoReconcile: true
+    reconcileInterval: 5m

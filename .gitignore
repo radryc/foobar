@@ -1,0 +1,18 @@
+# Rust
+rust/target/
+
+# Node
+js/node_modules/
+
+# Go
+go/go.sum
+bin/
+
+# Python
+__pycache__/
+*.pyc
+python/__pycache__/
+
+# Bazel
+bazel-*
+.bazel/

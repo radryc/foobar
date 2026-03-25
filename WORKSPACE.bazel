@@ -1,0 +1,2 @@
+# This project uses Bzlmod (MODULE.bazel).
+# This file is intentionally left empty — Bazel ≥ 6 prefers MODULE.bazel.

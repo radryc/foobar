@@ -1,0 +1,10 @@
+# .bazelrc — Bazel build flags
+
+# Enable Bzlmod (MODULE.bazel) — on by default in Bazel 7+, explicit here for clarity.
+common --enable_bzlmod
+
+# Improve output readability
+common --color=yes
+
+# Cache build artefacts locally
+build --disk_cache=~/.cache/bazel-disk

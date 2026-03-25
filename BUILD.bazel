@@ -1,0 +1,21 @@
+# Root BUILD.bazel — aggregates all sub-targets under one alias
+
+package(default_visibility = ["//visibility:public"])
+
+# Build everything: bazel build //:foobar
+alias(
+    name = "foobar",
+    actual = "//go:foobar",
+)
+
+# Run the app: bazel run //:run
+sh_binary(
+    name = "run",
+    srcs = ["run.sh"],
+    data = [
+        "//go:foobar",
+        "//rust:foo",
+        "//js:bar",
+        "//python:foobar_py",
+    ],
+)
